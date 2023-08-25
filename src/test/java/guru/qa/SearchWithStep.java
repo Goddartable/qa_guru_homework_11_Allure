@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
 
 public class SearchWithStep extends TestBase {
-    TestBase testBase = new TestBase();
 
     @Step("Открываем главную страницу GitHub")
     void openGitHub() {

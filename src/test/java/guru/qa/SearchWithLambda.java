@@ -13,8 +13,6 @@ import static io.qameta.allure.Allure.step;
 
 public class SearchWithLambda extends TestBase {
 
-    TestBase testBase = new TestBase();
-
     @Test
     @DisplayName("Поиск Issue в Github. Listener")
     void searchGithubIssueLambda() {
@@ -22,21 +20,21 @@ public class SearchWithLambda extends TestBase {
             open(baseUrl);
         });
 
-        step("Ищем репозиторий " + testBase.REPOSITORY, () -> {
+        step("Ищем репозиторий " + REPOSITORY, () -> {
             $(".search-input").click();
             $("#query-builder-test").sendKeys("Selenide");
             $("#query-builder-test").submit();
         });
 
-        step("Кликаем по ссылке репозитория " + testBase.REPOSITORY, () -> {
-            $(linkText(testBase.REPOSITORY)).click();
+        step("Кликаем по ссылке репозитория " + REPOSITORY, () -> {
+            $(linkText(REPOSITORY)).click();
         });
 
         step("Открываем таб Issues", () -> {
             $("#issues-tab").click();
         });
-        step("Проверяем наличие Issue с номером " + testBase.ISSUE, () -> {
-            $(withText("#" + testBase.ISSUE)).should(Condition.exist);
+        step("Проверяем наличие Issue с номером " + ISSUE, () -> {
+            $(withText("#" + ISSUE)).should(Condition.exist);
         });
     }
 }

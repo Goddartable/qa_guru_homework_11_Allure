@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
 
 public class SearchWithListener extends TestBase {
-    TestBase testBase = new TestBase();
 
     @Test
     @DisplayName("Поиск Issue в Github. Listener")
@@ -21,9 +20,9 @@ public class SearchWithListener extends TestBase {
         $("#query-builder-test").sendKeys("Selenide");
         $("#query-builder-test").submit();
 
-        $(linkText(testBase.REPOSITORY)).click();
+        $(linkText(REPOSITORY)).click();
         $("#issues-tab").click();
-        $(withText("#" + testBase.ISSUE)).should(Condition.exist);
+        $(withText("#" + ISSUE)).should(Condition.exist);
 
 
     }
